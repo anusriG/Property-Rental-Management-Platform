@@ -70,4 +70,3 @@ The application will provide:
 ## 10. Chosen Track
 
 **Java – Spring Boot**
-
