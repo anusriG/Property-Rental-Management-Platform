@@ -1,0 +1,50 @@
+Table Admin {
+  admin_id int [pk, increment]
+  name varchar
+  email varchar [unique]
+  password varchar
+}
+
+Table Owner {
+  owner_id int [pk, increment]
+  name varchar
+  email varchar [unique]
+  phone varchar
+  password varchar
+}
+
+Table Customer {
+  customer_id int [pk, increment]
+  name varchar
+  email varchar [unique]
+  phone varchar
+  password varchar
+}
+
+Table Property {
+  property_id int [pk, increment]
+  owner_id int [ref: > Owner.owner_id]
+  title varchar
+  description text
+  address varchar
+  property_type varchar
+  rent_amount decimal
+  availability_status varchar
+}
+
+Table Rental_Request {
+  request_id int [pk, increment]
+  customer_id int [ref: > Customer.customer_id]
+  property_id int [ref: > Property.property_id]
+  request_date date
+  status varchar
+}
+
+Table Booking {
+  booking_id int [pk, increment]
+  customer_id int [ref: > Customer.customer_id]
+  property_id int [ref: > Property.property_id]
+  booking_date date
+  move_in_date date
+  payment_status varchar
+}
